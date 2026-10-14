@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Turtle and the Great Tradition</title>
+    <!-- Include jQuery and Turn.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #e0e0e0;
+        }
+        #flipbook {
+            width: 900px;
+            height: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        #flipbook .page {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #flipbook .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .instructions {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+        /* Responsive scaling for smaller screens */
+        @media (max-width: 950px) {
+            #flipbook {
+                width: 100vw;
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Little Turtle and the Great Tradition</h1>
+    
+    <div id="flipbook">
+        <div class="page"><img src="pages/1.png" alt="Page 1"></div>
+        <div class="page"><img src="pages/2.png" alt="Page 2"></div>
+        <div class="page"><img src="pages/3.png" alt="Page 3"></div>
+        <div class="page"><img src="pages/4.png" alt="Page 4"></div>
+        <div class="page"><img src="pages/5.png" alt="Page 5"></div>
+        <div class="page"><img src="pages/6.png" alt="Page 6"></div>
+        <div class="page"><img src="pages/7.png" alt="Page 7"></div>
+        <div class="page"><img src="pages/8.png" alt="Page 8"></div>
+        <div class="page"><img src="pages/9.png" alt="Page 9"></div>
+        <div class="page"><img src="pages/10.png" alt="Page 10"></div>
+        <div class="page"><img src="pages/11.png" alt="Page 11"></div>
+        <div class="page"><img src="pages/12.png" alt="Page 12"></div>
+        <div class="page"><img src="pages/13.png" alt="Page 13"></div>
+        <div class="page"><img src="pages/14.png" alt="Page 14"></div>
+        <div class="page"><img src="pages/15.png" alt="Page 15"></div>
+        <div class="page"><img src="pages/16.png" alt="Page 16"></div>
+        <div class="page"><img src="pages/17.png" alt="Page 17"></div>
+    </div>
+
+    <div class="instructions">Click and drag corners or use arrow keys to flip pages.</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#flipbook").turn({
+                width: 900,
+                height: 600,
+                autoCenter: true,
+                elevation: 50,
+                gradients: true,
+                display: 'double'
+            });
+        });
+
+        // Enable keyboard arrow navigation
+        $(keydown).keydown(function(e){
+            if(e.keyCode == 37) {
+                $("#flipbook").turn('previous');
+            } else if(e.keyCode == 39) {
+                $("#flipbook").turn('next');
+            }
+        });
+    </script>
+
+</body>
+</html>
